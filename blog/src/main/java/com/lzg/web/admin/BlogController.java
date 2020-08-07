@@ -3,6 +3,7 @@ package com.lzg.web.admin;
 import com.lzg.po.Blog;
 import com.lzg.po.User;
 import com.lzg.service.BlogService;
+import com.lzg.service.CommentService;
 import com.lzg.service.TagService;
 import com.lzg.service.TypeService;
 import com.lzg.vo.BlogQuery;
@@ -59,6 +60,8 @@ public class BlogController {
 
     @Autowired
     private TagService tagService;
+
+
 
     @GetMapping("/blogs")
     public String blogs(@PageableDefault(size = 5 , sort = {"updateTime"},
@@ -144,7 +147,8 @@ public class BlogController {
 
     @GetMapping("/blogs/{id}/delete")
     public String delete(@PathVariable Long id,RedirectAttributes attributes) {
-        blogService.deleteBlog(id);
+
+        blogService.deleteBlog(id);//删除博客
         attributes.addFlashAttribute("message", "删除成功");
         return REDIRECT_LIST;
     }

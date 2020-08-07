@@ -66,13 +66,13 @@
           <div class="ui teal basic left pointing label m-margin-tb-tiny">...</div>
         </div>
         <div class="ui bottom attached segment">
-          <a href="#" class="ui circular icon button"><i class="github icon"></i></a>
+          <a href="#" class="ui github circular icon button"  data-content="liuzhaogui@github.com" data-position="bottom center"><i class="github icon"></i></a>
           <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
-          <a href="#" class="ui qq circular icon button" data-content="865729312" data-position="bottom center"><i class="qq icon"></i></a>
+          <a href="#" class="ui qq circular icon button" data-content="2648263739" data-position="bottom center"><i class="qq icon"></i></a>
         </div>
 
         <div class="ui wechat-qr flowing popup transition hidden">
-          <img src="../static/images/wechat.jpg" alt="" class="ui rounded image" style="width: 110px">
+          <img src="../static/images/weixinhaoyou.jpg" alt="" class="ui rounded image" style="width: 110px">
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@
         <div class="three wide column">
           <div class="ui inverted link list">
             <div class="item">
-              <img src="../static/images/weixinzhifu.jpg" th:src="@{/images/wechat.jpg}"  class="ui rounded image" alt="" style="width: 110px">
+              <img src="../static/images/weixinzhifu.jpg" th:src="@{/images/weixinzhifu.jpg}"  class="ui rounded image" alt="" style="width: 110px">
             </div>
           </div>
         </div>
@@ -133,6 +133,7 @@
     position: 'bottom center'
   });
   $('.qq').popup();
+  $('.github').popup();
 
 </script>
 </body>

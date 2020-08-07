@@ -2,6 +2,7 @@ package com.lzg.service;
 
 import com.lzg.NotFoundException;
 import com.lzg.dao.BlogRepository;
+import com.lzg.dao.CommentRepository;
 import com.lzg.po.Blog;
 import com.lzg.po.Type;
 import com.lzg.util.MarkdownUtils;
@@ -26,6 +27,8 @@ public class BlogServiceImpl implements BlogService {
 
     @Autowired
     private BlogRepository blogRepository;
+    @Autowired
+    private CommentRepository commentRepository;
 
     @Override
     public Blog getBlog(Long id) {
@@ -142,6 +145,13 @@ public class BlogServiceImpl implements BlogService {
     @Transactional
     @Override
     public void deleteBlog(Long id) {
-        blogRepository.delete(id);
+        //删除评论
+        int num=commentRepository.deletes(id);
+        if(num>0){
+            blogRepository.delete(id);
+        }else{
+            System.out.println("--------------------删除失败");
+        }
+
     }
 }
